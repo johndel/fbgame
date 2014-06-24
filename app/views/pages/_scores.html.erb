@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Position</th>
+    <th>Best Players</th>
+    <th>Score</th>
+  </tr>
+  <% @users.each_with_index do |user, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= user.name %></td>
+      <td><%= user.score.nil? ? "0" : user.score %></td>
+    </tr>
+  <% end %>
+</table>

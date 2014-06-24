@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My friends Quiz</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <% if Rails.env == "development" %>
+  <%= javascript_include_tag "application_dev" %>
+  <% else %>
+  <%= javascript_include_tag "application" %>
+  <% end %>
+  <%#= csrf_meta_tags %>
+</head>
+<body>
+<%#= render "layouts/user_login" %>
+<div class="container" style="margin-top: 100px">
+  <div class="flash_message">
+  </div>
+  <div class="col-xs-5 table_score">
+    <%= render partial: "pages/scores" %>
+  </div>
+  <div class="col-xs-7">
+    <% if current_user %>
+      <div class="maingame">
+        <%= render partial: "pages/main_form" %>
+      </div>
+    <% else %>
+      <div class="jumbotron">
+        <h2>Instructions:</h2>
+        <p>
+          <ul>
+            <li>Find the name of your friend and gain +1</li>
+            <li>Miss it and lose -1</li>
+          </ul>
+        </p>
+        <p>Good luck!</p>
+        <%= link_to image_tag("facebook_sigin.jpg"), "/auth/facebook", id: "sign_in" %>
+
+      </div>
+    <% end %>
+    <%#= yield %>
+  </div>
+</div>
+
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+</body>
+</html>

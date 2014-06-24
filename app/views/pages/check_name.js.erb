@@ -1,0 +1,13 @@
+$(".table_score").html("<%= escape_javascript(render(partial: 'pages/scores')) %>");
+$(".maingame").html("<%= escape_javascript(render(partial: 'pages/main_form')) %>");
+<% if flash[:notice] %>
+  $(".flash_message").html('<div class="alert alert-success"><%= flash[:notice] %></div>');
+<% else %>
+  $(".flash_message").html('<div class="alert alert-danger"><%= flash[:error] %></div>');
+<% end %>
+<%# if flash[:notice] %>
+  //$(".modal-title").html("<%= flash[:notice] %>");
+<%# else %>
+  //$(".modal-title").html("<%= flash[:error] %>");
+<%# end %>
+//$('#myModal').modal('show')

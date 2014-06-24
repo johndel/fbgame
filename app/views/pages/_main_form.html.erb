@@ -1,0 +1,11 @@
+<div class="game_container">
+  <img src="http://graph.facebook.com/<%= @selected_friend["id"] %>/picture?width=400&height=400" />
+  <br /><br />
+  <div><strong>What is your friend's name?</strong></div>
+  <%= form_tag "check_name", remote: true do %>
+    <% @names.shuffle.each do |name| %>
+      <input type="radio" name="myradio" id="<%= name.strip %>" value="<%= name %>"> <label for="<%= name.strip %>"><%= name %></label><br />
+    <% end %>
+    <%= submit_tag "Check", class: "btn btn-primary check_button",  data: { disable_with: "Please wait..." } %>
+  <% end %>
+</div>
